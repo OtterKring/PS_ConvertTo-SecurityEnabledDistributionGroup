@@ -1,3 +1,30 @@
+<#
+.SYNOPSIS
+Convert a security group to a mail enabled universal security group for use with Exchange 2013+
+
+.DESCRIPTION
+Convert a security group to a mail enabled universal security group for use with Exchange 2013+
+
+Prerequisite is an AD group created as security group. If it was created as distribution group in AD, the function will refuse the transformation, because Exchange requires the groups to be created as security groups and then transformed to distribution groups to e.g. be able to use them for mailbox folder permissions.
+
+The function requires to be run with Exchange Cmdlets (Get-Group, Set-Group, Enable-DistributionGroup) loaded (Exchange Management Console or Powershell with imported session from Exchange)
+
+.PARAMETER Identity
+Takes the Identity parameter of a group, ValueFromPipelineByPropertyName supported
+
+.PARAMETER SamAccountName
+Use the SamAccountName instead of Identity, pipelinesupport, but without property name
+
+.EXAMPLE
+ConvertTo-SecurityEnabledDistributionGroup -SamAccountName HRGroup
+
+.EXAMPLE
+Get-Group HRGroup | ConvertTo-SecurityEnabledDistributionGroup
+
+.NOTES
+v1 by Maximilian Otter, 20190308
+#>
+#
 function ConvertTo-SecurityEnabledDistributionGroup {
     [CmdletBinding()]
     param (
