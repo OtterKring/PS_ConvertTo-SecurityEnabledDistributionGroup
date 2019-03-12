@@ -18,7 +18,7 @@ In some cases you do not even intend a group to become mail-enabled, but Exchang
 
 For additional help on mailbox read-only permissions check my repostiory on [Read-Only Mailbox Access](https://otterkring.github.io/PS_ReadOnlyMailboxAccess/)
 
-### How to use `ConvertTo-SecurityEnabledDistributionGroup`
+### How to use ConvertTo-SecurityEnabledDistributionGroup
 
 Lets assume you already created a global security group in Active Directory.
 
